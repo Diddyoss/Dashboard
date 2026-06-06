@@ -4,7 +4,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .header {
@@ -14,9 +14,10 @@
 }
 
 .heading {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 700;
-  color: #1a1a1a;
+  color: #111111;
+  letter-spacing: -1px;
 }
 
 .goalRow {
@@ -26,18 +27,21 @@
 }
 
 .goalLabel {
-  font-size: 14px;
-  color: #999;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 700;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
 }
 
 .goalValue {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
-  color: #3b82f6;
+  color: #111111;
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 3px;
+  letter-spacing: 0.3px;
 }
 
 .goalEdit {
@@ -47,75 +51,82 @@
 }
 
 .goalInput {
-  width: 80px;
-  border: 1.5px solid #3b82f6;
-  border-radius: 6px;
+  width: 76px;
+  border: 1px solid #111111;
+  border-radius: 3px;
   padding: 3px 8px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  color: #1a1a1a;
-  background: #eff6ff;
+  color: #111111;
+  background: #f4f4f4;
   outline: none;
+  font-family: inherit;
 }
 
 .goalUnit {
-  font-size: 13px;
-  color: #999;
+  font-size: 12px;
+  color: #999999;
+  font-weight: 700;
 }
 
 .ringCard {
-  background: #fff;
-  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
   padding: 32px 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .goalReached {
-  font-size: 15px;
-  font-weight: 600;
-  color: #22c55e;
+  font-size: 12px;
+  font-weight: 700;
+  color: #111111;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .quickCard {
-  background: #fff;
-  border-radius: 16px;
-  padding: 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .sectionLabel {
-  font-size: 11px;
-  font-weight: 600;
-  color: #999;
+  font-size: 10px;
+  font-weight: 700;
+  color: #999999;
   text-transform: uppercase;
-  letter-spacing: 0.6px;
+  letter-spacing: 1px;
 }
 
 .quickBtns {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .quickBtn {
   flex: 1;
   padding: 14px;
-  border-radius: 12px;
-  background: #eff6ff;
-  color: #3b82f6;
-  font-size: 16px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  color: #111111;
+  font-size: 14px;
   font-weight: 700;
-  transition: background 0.2s, transform 0.1s;
+  letter-spacing: -0.3px;
+  transition: background 0.15s, transform 0.1s;
+  font-family: inherit;
 }
 
 .quickBtn:active {
-  background: #dbeafe;
+  background: #e0e0e0;
   transform: scale(0.97);
 }
 
@@ -127,89 +138,99 @@
 
 .customInput {
   flex: 1;
-  border: 1.5px solid #e4e4e4;
-  border-radius: 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
   padding: 10px 12px;
-  font-size: 15px;
-  color: #1a1a1a;
-  background: #f8f8f6;
+  font-size: 13px;
+  color: #111111;
+  background: #f4f4f4;
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.15s, background 0.15s;
+  font-family: inherit;
 }
 
 .customInput:focus {
-  border-color: #3b82f6;
-  background: #fff;
+  border-color: #111111;
+  background: #ffffff;
 }
 
 .customInput::placeholder {
-  color: #c0c0c0;
+  color: #bbbbbb;
 }
 
 .customUnit {
-  font-size: 13px;
-  color: #999;
-  font-weight: 500;
+  font-size: 12px;
+  color: #999999;
+  font-weight: 700;
   flex-shrink: 0;
+  letter-spacing: 0.3px;
 }
 
 .customAddBtn {
-  padding: 10px 18px;
-  border-radius: 10px;
-  background: #3b82f6;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 4px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
   flex-shrink: 0;
-  transition: background 0.2s, transform 0.1s;
+  letter-spacing: 0.5px;
+  transition: background 0.15s, transform 0.1s;
+  font-family: inherit;
 }
 
 .customAddBtn:active {
-  background: #2563eb;
+  background: #333333;
   transform: scale(0.97);
 }
 
 .actionsCard {
-  background: #fff;
-  border-radius: 16px;
-  padding: 12px 16px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 14px;
   display: flex;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 8px;
 }
 
 .undoBtn {
   flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  background: #f2f2f0;
-  color: #555;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background 0.2s;
+  padding: 11px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  color: #555555;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: background 0.15s;
+  font-family: inherit;
 }
 
 .undoBtn:disabled {
-  opacity: 0.35;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
 .undoBtn:not(:disabled):active {
-  background: #e8e8e4;
+  background: #e0e0e0;
 }
 
 .resetBtn {
   flex: 1;
-  padding: 12px;
-  border-radius: 10px;
-  background: #fff0f0;
-  color: #ef4444;
-  font-size: 14px;
-  font-weight: 600;
-  transition: background 0.2s;
+  padding: 11px;
+  border-radius: 4px;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  color: #333333;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: background 0.15s;
+  font-family: inherit;
 }
 
 .resetBtn:active {
-  background: #fee2e2;
+  background: #e0e0e0;
 }

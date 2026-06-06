@@ -16,7 +16,7 @@ export default function WaterTab({ settings, setSettings }) {
   const goal = settings.waterGoal || 2000
   const total = waterData.total || 0
   const pct = Math.min(Math.round((total / goal) * 100), 100)
-  const ringColor = pct >= 100 ? '#22c55e' : '#3b82f6'
+  const ringColor = '#111111'
 
   const addWater = (ml) => {
     const amount = Math.round(Number(ml))

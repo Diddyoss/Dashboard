@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import styles from './SupplementSection.module.css'
 
-const SECTION_COLORS = {
-  Morning: '#f59e0b',
-  Afternoon: '#f97316',
-  Evening: '#8b5cf6',
-  Night: '#4f46e5',
+const SECTION_LABELS = {
+  Morning: 'AM',
+  Afternoon: 'MID',
+  Evening: 'PM',
+  Night: 'NIGHT',
 }
 
 const PlusIcon = () => (
@@ -31,8 +31,6 @@ export default function SupplementSection({ title, supplements, taken, onAdd, on
   const [name, setName] = useState('')
   const [dose, setDose] = useState('')
 
-  const accent = SECTION_COLORS[title] || '#0891b2'
-
   const handleAdd = () => {
     const trimmed = name.trim()
     if (!trimmed) return
@@ -49,14 +47,16 @@ export default function SupplementSection({ title, supplements, taken, onAdd, on
   }
 
   return (
-    <div className={styles.card} style={{ borderLeft: `3px solid ${accent}` }}>
+    <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <h2 className={styles.title} style={{ color: accent }}>{title}</h2>
+        <h2 className={styles.title}>
+          <span className={styles.tag}>{SECTION_LABELS[title]}</span>
+          {title}
+        </h2>
         <button
           className={styles.addBtn}
           onClick={() => setIsAdding((s) => !s)}
           aria-label={`Add to ${title}`}
-          style={{ color: accent, background: `${accent}18` }}
         >
           <PlusIcon />
         </button>
@@ -81,7 +81,7 @@ export default function SupplementSection({ title, supplements, taken, onAdd, on
           />
           <div className={styles.formActions}>
             <button className={styles.cancelBtn} onClick={cancel}>Cancel</button>
-            <button className={styles.saveBtn} onClick={handleAdd} style={{ background: accent }}>Add</button>
+            <button className={styles.saveBtn} onClick={handleAdd}>Add</button>
           </div>
         </div>
       )}
@@ -95,7 +95,6 @@ export default function SupplementSection({ title, supplements, taken, onAdd, on
             <button
               className={`${styles.checkbox} ${taken[supp.id] ? styles.checked : ''}`}
               onClick={() => onToggle(supp.id)}
-              style={taken[supp.id] ? { background: accent, borderColor: accent } : {}}
               aria-label={taken[supp.id] ? 'Mark untaken' : 'Mark taken'}
             >
               {taken[supp.id] && <CheckIcon />}
