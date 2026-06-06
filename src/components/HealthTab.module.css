@@ -14,18 +14,18 @@
 .heading {
   font-size: 26px;
   font-weight: 700;
-  color: #111111;
+  color: #eeeeee;
   letter-spacing: -1px;
   margin-bottom: 4px;
 }
 
 .summary {
   font-size: 12px;
-  color: #999999;
+  color: #444444;
   letter-spacing: 0.2px;
 }
 
 .count {
   font-weight: 700;
-  color: #111111;
+  color: #888888;
 }

@@ -8,7 +8,7 @@
 .title {
   font-size: 10px;
   font-weight: 700;
-  color: #999999;
+  color: #444444;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -22,7 +22,7 @@
 
 .track {
   fill: none;
-  stroke: #e0e0e0;
+  stroke: #222222;
 }
 
 .center {
@@ -37,14 +37,14 @@
 .pct {
   font-size: 20px;
   font-weight: 700;
-  color: #111111;
+  color: #eeeeee;
   line-height: 1;
   letter-spacing: -0.5px;
 }
 
 .sub {
   font-size: 10px;
-  color: #999999;
+  color: #555555;
   font-weight: 400;
   letter-spacing: 0.3px;
 }

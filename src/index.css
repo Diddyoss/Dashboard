@@ -10,8 +10,8 @@ html, body, #root {
 
 body {
   font-family: 'Space Mono', 'Courier New', monospace;
-  background: #f4f4f4;
-  color: #111111;
+  background: #0d0d0d;
+  color: #eeeeee;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

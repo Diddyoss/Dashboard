@@ -16,7 +16,7 @@
 .heading {
   font-size: 26px;
   font-weight: 700;
-  color: #111111;
+  color: #eeeeee;
   letter-spacing: -1px;
 }
 
@@ -29,7 +29,7 @@
 .goalLabel {
   font-size: 11px;
   font-weight: 700;
-  color: #999999;
+  color: #444444;
   text-transform: uppercase;
   letter-spacing: 0.8px;
 }
@@ -37,7 +37,7 @@
 .goalValue {
   font-size: 12px;
   font-weight: 700;
-  color: #111111;
+  color: #888888;
   text-decoration: underline;
   text-decoration-style: dotted;
   text-underline-offset: 3px;
@@ -52,26 +52,26 @@
 
 .goalInput {
   width: 76px;
-  border: 1px solid #111111;
+  border: 1px solid #666666;
   border-radius: 3px;
   padding: 3px 8px;
   font-size: 13px;
   font-weight: 700;
-  color: #111111;
-  background: #f4f4f4;
+  color: #eeeeee;
+  background: #1e1e1e;
   outline: none;
   font-family: inherit;
 }
 
 .goalUnit {
   font-size: 12px;
-  color: #999999;
+  color: #444444;
   font-weight: 700;
 }
 
 .ringCard {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  background: #161616;
+  border: 1px solid #2a2a2a;
   border-radius: 6px;
   padding: 32px 16px;
   display: flex;
@@ -81,16 +81,16 @@
 }
 
 .goalReached {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  color: #111111;
-  letter-spacing: 0.5px;
+  color: #888888;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .quickCard {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  background: #161616;
+  border: 1px solid #2a2a2a;
   border-radius: 6px;
   padding: 14px 16px;
   display: flex;
@@ -101,7 +101,7 @@
 .sectionLabel {
   font-size: 10px;
   font-weight: 700;
-  color: #999999;
+  color: #444444;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -115,18 +115,19 @@
   flex: 1;
   padding: 14px;
   border-radius: 4px;
-  background: #f0f0f0;
-  border: 1px solid #e0e0e0;
-  color: #111111;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #aaaaaa;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: -0.3px;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
   font-family: inherit;
 }
 
 .quickBtn:active {
-  background: #e0e0e0;
+  background: #2a2a2a;
+  color: #eeeeee;
   transform: scale(0.97);
 }
 
@@ -138,29 +139,29 @@
 
 .customInput {
   flex: 1;
-  border: 1px solid #d0d0d0;
+  border: 1px solid #333333;
   border-radius: 4px;
   padding: 10px 12px;
   font-size: 13px;
-  color: #111111;
-  background: #f4f4f4;
+  color: #eeeeee;
+  background: #1e1e1e;
   outline: none;
   transition: border-color 0.15s, background 0.15s;
   font-family: inherit;
 }
 
 .customInput:focus {
-  border-color: #111111;
-  background: #ffffff;
+  border-color: #666666;
+  background: #242424;
 }
 
 .customInput::placeholder {
-  color: #bbbbbb;
+  color: #3a3a3a;
 }
 
 .customUnit {
   font-size: 12px;
-  color: #999999;
+  color: #444444;
   font-weight: 700;
   flex-shrink: 0;
   letter-spacing: 0.3px;
@@ -169,8 +170,8 @@
 .customAddBtn {
   padding: 10px 16px;
   border-radius: 4px;
-  background: #111111;
-  color: #ffffff;
+  background: #444444;
+  color: #eeeeee;
   font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
@@ -180,13 +181,13 @@
 }
 
 .customAddBtn:active {
-  background: #333333;
+  background: #555555;
   transform: scale(0.97);
 }
 
 .actionsCard {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  background: #161616;
+  border: 1px solid #2a2a2a;
   border-radius: 6px;
   padding: 10px 14px;
   display: flex;
@@ -198,39 +199,41 @@
   flex: 1;
   padding: 11px;
   border-radius: 4px;
-  background: #f0f0f0;
-  border: 1px solid #e0e0e0;
-  color: #555555;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #666666;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.3px;
-  transition: background 0.15s;
+  transition: background 0.15s, color 0.15s;
   font-family: inherit;
 }
 
 .undoBtn:disabled {
-  opacity: 0.3;
+  opacity: 0.25;
   cursor: not-allowed;
 }
 
 .undoBtn:not(:disabled):active {
-  background: #e0e0e0;
+  background: #2a2a2a;
+  color: #aaaaaa;
 }
 
 .resetBtn {
   flex: 1;
   padding: 11px;
   border-radius: 4px;
-  background: #f0f0f0;
-  border: 1px solid #e0e0e0;
-  color: #333333;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #555555;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.3px;
-  transition: background 0.15s;
+  transition: background 0.15s, color 0.15s;
   font-family: inherit;
 }
 
 .resetBtn:active {
-  background: #e0e0e0;
+  background: #2a2a2a;
+  color: #888888;
 }

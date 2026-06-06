@@ -4,8 +4,8 @@
   left: 0;
   right: 0;
   height: 64px;
-  background: #ffffff;
-  border-top: 1px solid #e0e0e0;
+  background: #111111;
+  border-top: 1px solid #2a2a2a;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -21,17 +21,17 @@
   gap: 3px;
   padding: 8px 20px;
   border-radius: 4px;
-  color: #aaaaaa;
+  color: #444444;
   transition: color 0.15s, background 0.15s;
   min-width: 64px;
 }
 
 .tab:active {
-  background: #f0f0f0;
+  background: #1e1e1e;
 }
 
 .tab.active {
-  color: #111111;
+  color: #aaaaaa;
 }
 
 .icon {

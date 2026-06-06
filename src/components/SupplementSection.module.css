@@ -1,6 +1,6 @@
 .card {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  background: #161616;
+  border: 1px solid #2a2a2a;
   border-radius: 6px;
   padding: 14px 16px;
 }
@@ -15,7 +15,7 @@
 .title {
   font-size: 13px;
   font-weight: 700;
-  color: #111111;
+  color: #cccccc;
   letter-spacing: 0.2px;
   display: flex;
   align-items: center;
@@ -25,9 +25,9 @@
 .tag {
   font-size: 10px;
   font-weight: 700;
-  color: #999999;
-  background: #f0f0f0;
-  border: 1px solid #e0e0e0;
+  color: #555555;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
   border-radius: 3px;
   padding: 1px 5px;
   letter-spacing: 0.8px;
@@ -37,17 +37,18 @@
   width: 28px;
   height: 28px;
   border-radius: 3px;
-  color: #111111;
-  background: #f0f0f0;
-  border: 1px solid #e0e0e0;
+  color: #888888;
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, transform 0.1s;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
 }
 
 .addBtn:active {
-  background: #e0e0e0;
+  background: #2a2a2a;
+  color: #cccccc;
   transform: scale(0.92);
 }
 
@@ -57,8 +58,8 @@
 }
 
 .form {
-  background: #f4f4f4;
-  border: 1px solid #e0e0e0;
+  background: #111111;
+  border: 1px solid #2a2a2a;
   border-radius: 4px;
   padding: 12px;
   margin-bottom: 10px;
@@ -69,12 +70,12 @@
 
 .nameInput,
 .doseInput {
-  border: 1px solid #d0d0d0;
+  border: 1px solid #333333;
   border-radius: 3px;
   padding: 8px 10px;
   font-size: 13px;
-  color: #111111;
-  background: #ffffff;
+  color: #eeeeee;
+  background: #1e1e1e;
   outline: none;
   width: 100%;
   transition: border-color 0.15s;
@@ -82,12 +83,12 @@
 
 .nameInput:focus,
 .doseInput:focus {
-  border-color: #111111;
+  border-color: #666666;
 }
 
 .nameInput::placeholder,
 .doseInput::placeholder {
-  color: #bbbbbb;
+  color: #3a3a3a;
 }
 
 .formActions {
@@ -101,14 +102,16 @@
   border-radius: 3px;
   font-size: 12px;
   font-weight: 700;
-  color: #666666;
-  background: #e8e8e8;
+  color: #555555;
+  background: #222222;
+  border: 1px solid #2a2a2a;
   transition: background 0.15s;
   letter-spacing: 0.3px;
+  font-family: inherit;
 }
 
 .cancelBtn:active {
-  background: #dddddd;
+  background: #2a2a2a;
 }
 
 .saveBtn {
@@ -116,14 +119,15 @@
   border-radius: 3px;
   font-size: 12px;
   font-weight: 700;
-  color: #ffffff;
-  background: #111111;
+  color: #eeeeee;
+  background: #444444;
   letter-spacing: 0.3px;
   transition: background 0.15s;
+  font-family: inherit;
 }
 
 .saveBtn:active {
-  background: #333333;
+  background: #555555;
 }
 
 .list {
@@ -134,7 +138,7 @@
 
 .empty {
   font-size: 12px;
-  color: #bbbbbb;
+  color: #333333;
   text-align: center;
   padding: 6px 0;
   letter-spacing: 0.3px;
@@ -145,7 +149,7 @@
   align-items: center;
   gap: 10px;
   padding: 7px 2px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #1e1e1e;
 }
 
 .item:last-child {
@@ -156,7 +160,7 @@
   width: 20px;
   height: 20px;
   border-radius: 3px;
-  border: 1.5px solid #cccccc;
+  border: 1.5px solid #333333;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -169,14 +173,14 @@
 }
 
 .checkbox.checked {
-  background: #111111;
-  border-color: #111111;
+  background: #666666;
+  border-color: #666666;
 }
 
 .checkbox svg {
   width: 11px;
   height: 11px;
-  stroke: #ffffff;
+  stroke: #eeeeee;
 }
 
 .info {
@@ -189,18 +193,18 @@
 .suppName {
   font-size: 13px;
   font-weight: 700;
-  color: #111111;
+  color: #cccccc;
 }
 
 .done .suppName {
   text-decoration: line-through;
-  color: #bbbbbb;
+  color: #333333;
   font-weight: 400;
 }
 
 .suppDose {
   font-size: 11px;
-  color: #aaaaaa;
+  color: #444444;
   letter-spacing: 0.2px;
 }
 
@@ -208,7 +212,7 @@
   width: 26px;
   height: 26px;
   border-radius: 3px;
-  color: #cccccc;
+  color: #2a2a2a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -217,8 +221,8 @@
 }
 
 .removeBtn:active {
-  color: #111111;
-  background: #eeeeee;
+  color: #888888;
+  background: #1e1e1e;
 }
 
 .removeBtn svg {

@@ -24,9 +24,9 @@ function getDayPct(settings) {
 }
 
 function goalColor(pct, total) {
-  if (total === 0) return '#cccccc'
-  if (pct >= 100) return '#111111'
-  return `hsl(0,0%,${Math.round(60 - pct * 0.5)}%)`
+  if (total === 0) return '#2a2a2a'
+  if (pct >= 100) return '#aaaaaa'
+  return `hsl(0,0%,${Math.round(20 + pct * 0.5)}%)`
 }
 
 export default function HomeTab({ settings, setSettings }) {
@@ -84,7 +84,7 @@ export default function HomeTab({ settings, setSettings }) {
         <ProgressRing
           title="Day Elapsed"
           percentage={dayPct}
-          color="#111111"
+          color="#888888"
           label={`${dayPct}%`}
           sublabel={formatTime(now)}
         />
