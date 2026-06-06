@@ -29,6 +29,17 @@ function goalColor(pct, total) {
   return `hsl(0,0%,${Math.round(20 + pct * 0.5)}%)`
 }
 
+function formatDate(date) {
+  return date.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }).toUpperCase()
+}
+
+function getStatus(todos) {
+  if (todos.length === 0) return { type: 'empty' }
+  const incomplete = todos.filter((t) => !t.completed)
+  if (incomplete.length === 0) return { type: 'done' }
+  return { type: 'next', task: incomplete[0].text }
+}
+
 export default function HomeTab({ settings, setSettings }) {
   const [todos, setTodos] = useLocalStorage(`dashboard:todos:${todayKey()}`, [])
   const [showSettings, setShowSettings] = useState(false)
@@ -43,11 +54,15 @@ export default function HomeTab({ settings, setSettings }) {
   const total = todos.length
   const done = todos.filter((t) => t.completed).length
   const goalPct = total > 0 ? Math.round((done / total) * 100) : 0
+  const status = getStatus(todos)
 
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <h1 className={styles.heading}>Today</h1>
+        <div>
+          <h1 className={styles.heading}>Today</h1>
+          <p className={styles.date}>{formatDate(now)}</p>
+        </div>
         <button
           className={styles.gearBtn}
           onClick={() => setShowSettings((s) => !s)}
@@ -59,8 +74,9 @@ export default function HomeTab({ settings, setSettings }) {
 
       {showSettings && (
         <div className={styles.settingsCard}>
+          <p className={styles.settingsTitle}>Active day window</p>
           <div className={styles.settingRow}>
-            <label className={styles.settingLabel}>Wake time</label>
+            <label className={styles.settingLabel}>Wake</label>
             <input
               type="time"
               className={styles.timeInput}
@@ -69,13 +85,28 @@ export default function HomeTab({ settings, setSettings }) {
             />
           </div>
           <div className={styles.settingRow}>
-            <label className={styles.settingLabel}>Sleep time</label>
+            <label className={styles.settingLabel}>Sleep</label>
             <input
               type="time"
               className={styles.timeInput}
               value={settings.sleepTime || '23:00'}
               onChange={(e) => setSettings((s) => ({ ...s, sleepTime: e.target.value }))}
             />
+          </div>
+          <div className={styles.settingRow}>
+            <label className={styles.settingLabel}>Water goal</label>
+            <div className={styles.inlineEdit}>
+              <input
+                type="number"
+                className={styles.numInput}
+                value={settings.waterGoal || 2000}
+                onChange={(e) => {
+                  const v = parseInt(e.target.value)
+                  if (v > 0) setSettings((s) => ({ ...s, waterGoal: v }))
+                }}
+              />
+              <span className={styles.unit}>ml</span>
+            </div>
           </div>
         </div>
       )}
@@ -88,6 +119,7 @@ export default function HomeTab({ settings, setSettings }) {
           label={`${dayPct}%`}
           sublabel={formatTime(now)}
         />
+        <div className={styles.ringDivider} />
         <ProgressRing
           title="Goal Progress"
           percentage={goalPct}
@@ -95,6 +127,24 @@ export default function HomeTab({ settings, setSettings }) {
           label={`${goalPct}%`}
           sublabel={total === 0 ? 'No tasks' : `${done} of ${total}`}
         />
+      </div>
+
+      <div className={`${styles.statusCard} ${styles[`status_${status.type}`]}`}>
+        {status.type === 'empty' && (
+          <p className={styles.statusText}>No goals set for today — add one to get rolling.</p>
+        )}
+        {status.type === 'done' && (
+          <>
+            <span className={styles.statusTag}>DONE</span>
+            <p className={styles.statusText}>All goals completed for today.</p>
+          </>
+        )}
+        {status.type === 'next' && (
+          <>
+            <span className={styles.statusTag}>NEXT</span>
+            <p className={styles.statusText}>{status.task}</p>
+          </>
+        )}
       </div>
 
       <TodoList todos={todos} setTodos={setTodos} />

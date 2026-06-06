@@ -18,6 +18,7 @@ export default function HealthTab() {
   const allItems = Object.values(supplements).flat()
   const totalCount = allItems.length
   const takenCount = allItems.filter((s) => taken[s.id]).length
+  const progressPct = totalCount > 0 ? Math.round((takenCount / totalCount) * 100) : 0
 
   const addSupplement = (section, name, dose) => {
     setSupplements((prev) => ({
@@ -44,11 +45,21 @@ export default function HealthTab() {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <h1 className={styles.heading}>Health</h1>
-        <p className={styles.summary}>
-          <span className={styles.count}>{takenCount} of {totalCount}</span>
-          {' '}supplements taken today
-        </p>
+        <div className={styles.headerTop}>
+          <h1 className={styles.heading}>Health</h1>
+          <span className={styles.fraction}>{takenCount}/{totalCount}</span>
+        </div>
+        <p className={styles.summary}>supplements taken today</p>
+        <div className={styles.barTrack}>
+          <div
+            className={styles.barFill}
+            style={{ width: `${progressPct}%` }}
+          />
+        </div>
+        <div className={styles.barLabels}>
+          <span>{progressPct}% complete</span>
+          {totalCount === 0 && <span className={styles.hint}>Add supplements below</span>}
+        </div>
       </header>
 
       {TIME_SECTIONS.map((section) => (

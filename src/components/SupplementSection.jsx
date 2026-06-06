@@ -31,6 +31,8 @@ export default function SupplementSection({ title, supplements, taken, onAdd, on
   const [name, setName] = useState('')
   const [dose, setDose] = useState('')
 
+  const sectionTaken = supplements.filter((s) => taken[s.id]).length
+
   const handleAdd = () => {
     const trimmed = name.trim()
     if (!trimmed) return
@@ -52,6 +54,9 @@ export default function SupplementSection({ title, supplements, taken, onAdd, on
         <h2 className={styles.title}>
           <span className={styles.tag}>{SECTION_LABELS[title]}</span>
           {title}
+          {supplements.length > 0 && (
+            <span className={styles.count}>{sectionTaken}/{supplements.length}</span>
+          )}
         </h2>
         <button
           className={styles.addBtn}

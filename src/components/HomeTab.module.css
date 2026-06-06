@@ -9,7 +9,7 @@
 
 .header {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -18,6 +18,15 @@
   font-weight: 700;
   color: #eeeeee;
   letter-spacing: -1px;
+  line-height: 1;
+}
+
+.date {
+  font-size: 11px;
+  font-weight: 700;
+  color: #444444;
+  letter-spacing: 1px;
+  margin-top: 4px;
 }
 
 .gearBtn {
@@ -29,6 +38,7 @@
   justify-content: center;
   color: #444444;
   transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
 }
 
 .gearBtn:active {
@@ -48,7 +58,16 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+}
+
+.settingsTitle {
+  font-size: 10px;
+  font-weight: 700;
+  color: #444444;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
 }
 
 .settingRow {
@@ -80,7 +99,37 @@
 
 .timeInput:focus {
   border-color: #666666;
-  background: #242424;
+}
+
+.inlineEdit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.numInput {
+  width: 72px;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: #eeeeee;
+  background: #1e1e1e;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  text-align: right;
+}
+
+.numInput:focus {
+  border-color: #666666;
+}
+
+.unit {
+  font-size: 11px;
+  color: #444444;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .ringsCard {
@@ -91,4 +140,65 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.ringDivider {
+  width: 1px;
+  height: 80px;
+  background: #2a2a2a;
+  flex-shrink: 0;
+}
+
+/* Status card */
+.statusCard {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+}
+
+.statusTag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 7px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  border: 1px solid #333333;
+  color: #888888;
+  background: #1e1e1e;
+}
+
+.statusText {
+  font-size: 13px;
+  color: #555555;
+  line-height: 1.4;
+  letter-spacing: 0.1px;
+}
+
+.status_next .statusTag {
+  color: #aaaaaa;
+  border-color: #444444;
+}
+
+.status_next .statusText {
+  color: #cccccc;
+}
+
+.status_done .statusTag {
+  color: #888888;
+  border-color: #444444;
+}
+
+.status_done .statusText {
+  color: #666666;
+}
+
+.status_empty .statusText {
+  color: #444444;
+  font-style: italic;
 }
