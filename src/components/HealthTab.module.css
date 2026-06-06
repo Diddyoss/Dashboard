@@ -1,0 +1,29 @@
+.page {
+  padding: 24px 16px 0;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header {
+  margin-bottom: 2px;
+}
+
+.heading {
+  font-size: 30px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+
+.summary {
+  font-size: 14px;
+  color: #999;
+}
+
+.count {
+  font-weight: 700;
+  color: #22c55e;
+}
