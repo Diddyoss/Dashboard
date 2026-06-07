@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { todayKey, formatTime } from '../utils/date'
 import ProgressRing from './ProgressRing'
+import WaterGraphs from './WaterGraphs'
 import PulseDot from './PulseDot'
 import styles from './WaterTab.module.css'
 
@@ -20,6 +21,7 @@ export default function WaterTab({ settings, setSettings }) {
   const [customAmount, setCustomAmount] = useState('')
   const [editingGoal, setEditingGoal] = useState(false)
   const [goalInput, setGoalInput] = useState('')
+  const [showGraphs, setShowGraphs] = useState(false)
 
   const goal = settings.waterGoal || 2000
   const total = waterData.total || 0
@@ -31,7 +33,7 @@ export default function WaterTab({ settings, setSettings }) {
   const addWater = (ml) => {
     const amount = Math.round(Number(ml))
     if (!amount || amount <= 0) return
-    setWaterData((prev) => ({
+    setWaterData(prev => ({
       entries: [...(prev.entries || []), { ml: amount, ts: Date.now() }],
       total: (prev.total || 0) + amount,
     }))
@@ -43,7 +45,7 @@ export default function WaterTab({ settings, setSettings }) {
   }
 
   const undoLast = () => {
-    setWaterData((prev) => {
+    setWaterData(prev => {
       const e = [...(prev.entries || [])]
       if (!e.length) return prev
       const last = e.pop()
@@ -60,7 +62,7 @@ export default function WaterTab({ settings, setSettings }) {
 
   const commitGoal = () => {
     const g = Math.round(Number(goalInput))
-    if (g > 0) setSettings((prev) => ({ ...prev, waterGoal: g }))
+    if (g > 0) setSettings(prev => ({ ...prev, waterGoal: g }))
     setEditingGoal(false)
   }
 
@@ -125,7 +127,7 @@ export default function WaterTab({ settings, setSettings }) {
       <div className={styles.quickCard}>
         <p className={styles.sectionLabel}>Quick add</p>
         <div className={styles.quickBtns}>
-          {[150, 250, 350, 500].map((ml) => (
+          {[150, 250, 350, 500].map(ml => (
             <button key={ml} className={styles.quickBtn} onClick={() => addWater(ml)}>
               +{ml}
             </button>
@@ -142,7 +144,12 @@ export default function WaterTab({ settings, setSettings }) {
           />
           <button className={styles.customAddBtn} onClick={handleCustomAdd}>Add</button>
         </div>
+        <button className={styles.graphToggleBtn} onClick={() => setShowGraphs(s => !s)}>
+          {showGraphs ? '▲ Hide history' : '▼ Show history'}
+        </button>
       </div>
+
+      {showGraphs && <WaterGraphs entries={entries} goal={goal} />}
 
       {recentEntries.length > 0 && (
         <div className={styles.logCard}>

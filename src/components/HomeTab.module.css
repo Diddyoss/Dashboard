@@ -208,3 +208,32 @@
   color: #444444;
   font-style: italic;
 }
+
+/* Day selector */
+.daySelector {
+  display: flex;
+  gap: 4px;
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.dayTab {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #444444;
+  letter-spacing: 0.3px;
+  font-family: inherit;
+  text-align: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.activeDayTab {
+  background: #1e1e1e;
+  color: #cccccc;
+  border: 1px solid #2a2a2a;
+}

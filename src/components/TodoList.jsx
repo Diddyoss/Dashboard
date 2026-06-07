@@ -25,25 +25,26 @@ const TrashIcon = () => (
   </svg>
 )
 
-export default function TodoList({ todos, setTodos }) {
+export default function TodoList({ todos, setTodos, dayOffset, onPushToTomorrow }) {
   const [input, setInput] = useState('')
   const [editingId, setEditingId] = useState(null)
   const [editText, setEditText] = useState('')
 
-  const done = todos.filter((t) => t.completed).length
+  const done = todos.filter(t => t.completed).length
+  const incomplete = todos.filter(t => !t.completed)
 
   const add = () => {
     const text = input.trim()
     if (!text) return
-    setTodos((prev) => [...prev, { id: uid(), text, completed: false }])
+    setTodos(prev => [...prev, { id: uid(), text, completed: false }])
     setInput('')
   }
 
   const toggle = (id) =>
-    setTodos((prev) => prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)))
+    setTodos(prev => prev.map(t => t.id === id ? { ...t, completed: !t.completed } : t))
 
   const remove = (id) =>
-    setTodos((prev) => prev.filter((t) => t.id !== id))
+    setTodos(prev => prev.filter(t => t.id !== id))
 
   const startEdit = (todo) => {
     setEditingId(todo.id)
@@ -52,14 +53,14 @@ export default function TodoList({ todos, setTodos }) {
 
   const commitEdit = (id) => {
     const text = editText.trim()
-    if (text) setTodos((prev) => prev.map((t) => (t.id === id ? { ...t, text } : t)))
+    if (text) setTodos(prev => prev.map(t => t.id === id ? { ...t, text } : t))
     setEditingId(null)
   }
 
   return (
     <div className={styles.card}>
       <div className={styles.cardHeader}>
-        <h2 className={styles.title}>Checklist</h2>
+        <h2 className={styles.title}>{dayOffset === 0 ? "Today's Tasks" : "Tomorrow's Tasks"}</h2>
         <span className={styles.summary}>{done} of {todos.length} done</span>
       </div>
 
@@ -81,7 +82,7 @@ export default function TodoList({ todos, setTodos }) {
         {todos.length === 0 && (
           <li className={styles.empty}>No tasks yet — add one above.</li>
         )}
-        {todos.map((todo) => (
+        {todos.map(todo => (
           <li key={todo.id} className={`${styles.item} ${todo.completed ? styles.completed : ''}`}>
             <button
               className={`${styles.checkbox} ${todo.completed ? styles.checked : ''}`}
@@ -118,6 +119,12 @@ export default function TodoList({ todos, setTodos }) {
           </li>
         ))}
       </ul>
+
+      {dayOffset === 0 && incomplete.length > 0 && (
+        <button className={styles.pushBtn} onClick={onPushToTomorrow}>
+          Push {incomplete.length} undone → Tomorrow
+        </button>
+      )}
     </div>
   )
 }

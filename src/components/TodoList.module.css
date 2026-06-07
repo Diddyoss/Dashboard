@@ -177,3 +177,24 @@
   width: 14px;
   height: 14px;
 }
+
+.pushBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 9px 12px;
+  border-radius: 4px;
+  background: #111111;
+  border: 1px solid #222222;
+  color: #555555;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+}
+
+.pushBtn:active {
+  background: #1e1e1e;
+  color: #888888;
+}
