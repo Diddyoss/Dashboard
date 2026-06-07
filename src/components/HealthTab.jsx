@@ -1,6 +1,7 @@
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { todayKey } from '../utils/date'
 import SupplementSection from './SupplementSection'
+import PulseDot from './PulseDot'
 import styles from './HealthTab.module.css'
 
 const TIME_SECTIONS = ['Morning', 'Afternoon', 'Evening', 'Night']
@@ -46,7 +47,10 @@ export default function HealthTab() {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerTop}>
-          <h1 className={styles.heading}>Health</h1>
+          <div className={styles.headingRow}>
+            <PulseDot color="#22c55e" />
+            <h1 className={styles.heading}>Health</h1>
+          </div>
           <span className={styles.fraction}>{takenCount}/{totalCount}</span>
         </div>
         <p className={styles.summary}>supplements taken today</p>

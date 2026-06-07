@@ -3,6 +3,7 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 import { todayKey, formatTime, parseTimeToMinutes, nowMinutes } from '../utils/date'
 import ProgressRing from './ProgressRing'
 import TodoList from './TodoList'
+import PulseDot from './PulseDot'
 import styles from './HomeTab.module.css'
 
 const GearIcon = () => (
@@ -33,6 +34,14 @@ function formatDate(date) {
   return date.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }).toUpperCase()
 }
 
+function getDayRingColor(now) {
+  const m = now.getHours() * 60 + now.getMinutes()
+  if (m < 12 * 60) return '#fbbf24'  // morning: yellow
+  if (m < 17 * 60) return '#f97316'  // afternoon: orange
+  if (m < 21 * 60) return '#ef4444'  // evening: red
+  return '#6366f1'                    // night: indigo
+}
+
 function getStatus(todos) {
   if (todos.length === 0) return { type: 'empty' }
   const incomplete = todos.filter((t) => !t.completed)
@@ -60,7 +69,10 @@ export default function HomeTab({ settings, setSettings }) {
     <div className={styles.page}>
       <header className={styles.header}>
         <div>
-          <h1 className={styles.heading}>Today</h1>
+          <div className={styles.headingRow}>
+            <PulseDot color="#f97316" />
+            <h1 className={styles.heading}>Today</h1>
+          </div>
           <p className={styles.date}>{formatDate(now)}</p>
         </div>
         <button
@@ -115,7 +127,7 @@ export default function HomeTab({ settings, setSettings }) {
         <ProgressRing
           title="Day Elapsed"
           percentage={dayPct}
-          color="#888888"
+          color={getDayRingColor(now)}
           label={`${dayPct}%`}
           sublabel={formatTime(now)}
         />

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { todayKey, formatTime } from '../utils/date'
 import ProgressRing from './ProgressRing'
+import PulseDot from './PulseDot'
 import styles from './WaterTab.module.css'
 
 const EditIcon = () => (
@@ -66,7 +67,10 @@ export default function WaterTab({ settings, setSettings }) {
   return (
     <div className={styles.page}>
       <header className={styles.header}>
-        <h1 className={styles.heading}>Water</h1>
+        <div className={styles.headingRow}>
+          <PulseDot color="#3b82f6" />
+          <h1 className={styles.heading}>Water</h1>
+        </div>
         <div className={styles.goalRow}>
           <span className={styles.goalLabel}>Daily goal</span>
           {editingGoal ? (
