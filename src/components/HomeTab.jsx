@@ -12,6 +12,33 @@ const GearIcon = () => (
   </svg>
 )
 
+const QUOTES = [
+  'Small steps every day.',
+  'Done is better than perfect.',
+  'Discipline beats motivation.',
+  'Make today count.',
+  'Progress, not perfection.',
+  'One task at a time.',
+  'Start before you feel ready.',
+  'Consistency compounds.',
+  'Future you is watching.',
+  'Win the morning, win the day.',
+  'Action cures fear.',
+  'You won’t always be motivated. Be disciplined.',
+  'The best time to start is now.',
+  'Show up, even on the hard days.',
+  'Little by little becomes a lot.',
+  'Energy flows where focus goes.',
+  'Do it for the person you want to become.',
+  'Momentum loves a first move.',
+  'Effort today, ease tomorrow.',
+  'Keep the promise you made to yourself.',
+]
+
+function randomQuote() {
+  return QUOTES[Math.floor(Math.random() * QUOTES.length)]
+}
+
 function uid() {
   return Math.random().toString(36).slice(2, 10)
 }
@@ -79,6 +106,7 @@ export default function HomeTab({ settings, setSettings }) {
 
   const [showSettings, setShowSettings] = useState(false)
   const [now, setNow] = useState(new Date())
+  const [quote] = useState(randomQuote)
 
   useEffect(() => {
     const id = setInterval(() => setNow(new Date()), 60_000)
@@ -128,6 +156,7 @@ export default function HomeTab({ settings, setSettings }) {
           <div className={styles.headingRow}>
             <PulseDot color="#f97316" />
             <h1 className={styles.heading}>{dayOffset === 0 ? 'Today' : 'Tomorrow'}</h1>
+            <p className={styles.quote}>“{quote}”</p>
           </div>
           <p className={styles.date}>{formatDate(headerDate)}</p>
         </div>
