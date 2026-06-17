@@ -3,6 +3,7 @@ import { getDayKey, formatTime, parseTimeToMinutes, nowMinutes } from '../utils/
 import ProgressRing from './ProgressRing'
 import TodoList from './TodoList'
 import PulseDot from './PulseDot'
+import StreakTracker from './StreakTracker'
 import styles from './HomeTab.module.css'
 
 const GearIcon = () => (
@@ -237,6 +238,8 @@ export default function HomeTab({ settings, setSettings }) {
           sublabel={total === 0 ? 'No tasks' : `${done} of ${total}`}
         />
       </div>
+
+      <StreakTracker todos={todos} dayOffset={dayOffset} waterGoal={settings.waterGoal} />
 
       <div className={`${styles.statusCard} ${styles[`status_${status.type}`]}`}>
         {status.type === 'empty' && (
