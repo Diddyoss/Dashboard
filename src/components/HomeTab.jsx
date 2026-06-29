@@ -50,9 +50,16 @@ function clamp(val, min, max) {
 
 function getDayPct(settings) {
   const wake = parseTimeToMinutes(settings.wakeTime || '07:00')
-  const sleep = parseTimeToMinutes(settings.sleepTime || '23:00')
-  if (sleep <= wake) return 0
-  return clamp(((nowMinutes() - wake) / (sleep - wake)) * 100, 0, 100)
+  let sleep = parseTimeToMinutes(settings.sleepTime || '23:00')
+  let now = nowMinutes()
+  // Overnight window (sleep time is past midnight, e.g. wake 07:00 / sleep 01:00):
+  // roll sleep into the next day, and treat early-morning hours as part of the
+  // still-in-progress day so the ring stays continuous across midnight.
+  if (sleep <= wake) {
+    sleep += 1440
+    if (now < wake) now += 1440
+  }
+  return clamp(((now - wake) / (sleep - wake)) * 100, 0, 100)
 }
 
 function goalColor(pct, total) {
